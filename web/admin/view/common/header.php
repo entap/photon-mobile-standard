@@ -20,6 +20,19 @@
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a href="index.php">ホーム</a></li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">ユーザ <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="user.php">ユーザ</a></li>
+					<li><a href="device.php">デバイス</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">コンテンツ <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="package.php">パッケージ</a></li>
+				</ul>
+			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<?php if (admin_has_role(['admin_user', 'admin_user_local', 'admin_group', 'admin_role', 'sysmail', 'property', 'log'])) { ?>
