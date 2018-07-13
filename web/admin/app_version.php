@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../system/photon/photon.php';
+require_once __DIR__ . '/../system/common.php';
 require_once __DIR__ . '/../system/admin/admin.php';
 require_once __DIR__ . '/../system/admin/app_version.php';
 require_once __DIR__ . '/../system/admin/package_latest.php';
@@ -35,8 +36,11 @@ function action_edit($data)
 	} else if ($data['id']) {
 		$data['app_version'] = app_version_get($data['id']);
 	} else {
-		$data['app_version'] = [];
+		$data['app_version'] = [
+			'platform_id' => $data['app_version']['platform_id']
+		];
 	}
+
 	$data['platform'] = db_select_at('m_platform', $data['app_version']['platform_id']) or die;
 	form_set_value(NULL, $data);
 	render('view/app_version/edit.php', $data);

@@ -2,12 +2,12 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="359c9350-8a1b-42c2-aa22-72bbd6568c9e" name="mobile-standard.entap.works" url="http://mobile-standard.entap.works">
-        <fileTransfer host="mobile-standard.entap.works" port="21" rootFolder="/httpdocs">
+      <webServer id="359c9350-8a1b-42c2-aa22-72bbd6568c9e" name="photon-mobile-standard.entap.works" url="http://photon-mobile-standard.entap.works">
+        <fileTransfer host="photon-mobile-standard.entap.works" port="22" rootFolder="/home/photon-mobile-standard/public_html" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
-          <option name="port" value="21" />
+          <option name="port" value="22" />
         </fileTransfer>
       </webServer>
     </option>
