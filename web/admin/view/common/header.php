@@ -23,8 +23,8 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">ユーザ <span class="caret"></span></a>
 				<ul class="dropdown-menu">
+					<li><a href="device.php">端末</a></li>
 					<li><a href="user.php">ユーザ</a></li>
-					<li><a href="device.php">デバイス</a></li>
 				</ul>
 			</li>
 			<li class="dropdown">

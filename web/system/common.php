@@ -94,4 +94,16 @@ function boolean_get_options()
 	return ['いいえ', 'はい'];
 }
 
+/**
+ * フィールド名に対応するコメントを取得する
+ *
+ * @param $table string テーブル名
+ * @return array フィールド名に対応するコメントの連想配列
+ */
+// ログテーブルのフィールド名を取得
+function field_comments($table)
+{
+	return db_select_column('SHOW FULL COLUMNS FROM ' . db_quote_field($table), 'Comment', 'Field');
+}
+
 ?>

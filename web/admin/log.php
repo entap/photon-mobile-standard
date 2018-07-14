@@ -10,12 +10,6 @@ function _log_tables()
 	return db_select_column('SHOW TABLE STATUS LIKE \'log\_%\'', 'Comment', 'Name');
 }
 
-// ログテーブルのフィールド名を取得
-function _log_fields($table)
-{
-	return db_select_column('SHOW FULL COLUMNS FROM ' . db_quote_field($table), 'Comment', 'Field');
-}
-
 /**
  * ログの閲覧
  */
@@ -45,7 +39,7 @@ function action_index($data)
 
 	if (isset($data['c']['table'])) {
 		// フィールド名
-		$data['fields'] = _log_fields($data['c']['table']);
+		$data['fields'] = field_comments($data['c']['table']);
 		unset($data['fields']['id']);
 
 		// 検索
