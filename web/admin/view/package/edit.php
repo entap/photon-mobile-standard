@@ -32,18 +32,25 @@
 						<td>
 							<?= form_error('package[expired_flag]', 'package[expired_date_flag]', 'package[expired_date]') ?>
 							<div class="checkbox"><?= form_checkbox('package[expired_flag]', '1', ' 期限切れ') ?></div>
-							<div class="checkbox"><?= form_checkbox('package[expired_date_flag]', '1', ' 期限切れ日時を指定する') ?></div>
-							<div class="form-inline"><?= form_date('package[expired_date]', '{y} 年 {m} 月 {d} 日 {h} 時', 'class="form-control"') ?></div>
+							<div data-vif="package[expired_flag]">
+								<div class="checkbox"><?= form_checkbox('package[expired_date_flag]', '1', ' 期限切れ日時を指定する') ?></div>
+								<div data-vif="package[expired_date_flag]">
+									<div class="form-inline"><?= form_date('package[expired_date]', '{y} 年 {m} 月 {d} 日 {h} 時', 'class="form-control"') ?></div>
+								</div>
+							</div>
 						</td>
 					</tr>
 					<tr>
 						<th>公開</th>
 						<td>
 							<?= form_error('package[public_flag]', 'package[public_date_flag]', 'package[public_date]') ?>
-							<div class="checkbox"><?= form_checkbox('package[public_flag]', '1', ' 公開
-							') ?></div>
-							<div class="checkbox"><?= form_checkbox('package[public_date_flag]', '1', ' 公開開始日時を指定する') ?></div>
-							<div class="form-inline"><?= form_date('package[public_date]', '{y} 年 {m} 月 {d} 日 {h} 時', 'class="form-control"') ?></div>
+							<div class="checkbox"><?= form_checkbox('package[public_flag]', '1', ' 公開') ?></div>
+							<div data-vif="package[public_flag]">
+								<div class="checkbox"><?= form_checkbox('package[public_date_flag]', '1', ' 公開開始日時を指定する') ?></div>
+								<div data-vif="package[public_date_flag]">
+									<div class="form-inline"><?= form_date('package[public_date]', '{y} 年 {m} 月 {d} 日 {h} 時', 'class="form-control"') ?></div>
+								</div>
+							</div>
 						</td>
 					</tr>
 					</tbody>

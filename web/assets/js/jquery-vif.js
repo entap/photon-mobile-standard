@@ -15,12 +15,20 @@ $(function () {
 		});
 		visible ? $e.show() : $e.hide();
 	}
-	$('[data-vif]').each(function () {
-		var $e = $(this);
-		var name = $e.attr('data-vif');
-		update(name, $(this));
-		$e.closest('form').on('change click keyup paste', '[name="' + name + '"]', function () {
-			update(name, $e);
+	var setup = function () {
+		$('form').off('.vif');
+		$('[data-vif]').each(function () {
+			var $e = $(this);
+			var name = $e.attr('data-vif');
+			update(name, $(this));
+			$e.closest('form').on('change.vif click.vif keyup.vif paste.vif', '[name="' + name + '"]', function () {
+				update(name, $e);
+			});
 		});
+	}
+	var mutationObserver = new MutationObserver(function () {
+		setup();
 	});
+	mutationObserver.observe(document, {childList: true, subtree: true});
+	setup();
 });

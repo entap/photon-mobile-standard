@@ -16,7 +16,7 @@
 <nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="index.php">Photon</a>
+			<a class="navbar-brand" href="index.php">App</a>
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a href="index.php">ホーム</a></li>

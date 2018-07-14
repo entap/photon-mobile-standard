@@ -124,11 +124,11 @@ function package_status_display($package)
 		return '非公開';
 	}
 	if ($package['public_date_flag'] && $package['public_date'] > db_datetime()) {
-		return $package['public_date'] . 'まで非公開';
+		return date('Y-m-d H:i', strtotime($package['public_date'])) . 'まで非公開';
 	}
 	if ($package['expired_flag']) {
-		if ($package['expired_date_flag'] && $package['expired_date'] < db_datetime()) {
-			return '公開中 ' . $package['expired_date'] . 'に期限切れ';
+		if ($package['expired_date_flag'] && $package['expired_date'] > db_datetime()) {
+			return '公開中 ' . date('Y-m-d H:i', strtotime($package['expired_date'])) . 'に期限切れ';
 		} else {
 			return '期限切れ';
 		}

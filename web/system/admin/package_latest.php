@@ -34,7 +34,7 @@ function package_latest_determine($app_version)
 
 	// ビルド中でない事をチェック
 	sql_join('package_build', 'package_id', 'package', 'id');
-	//sql_where_integer('package_build.done_flag', 1);
+	sql_where_integer('package_build.done_flag', 1);
 
 	// 最新版
 	sql_order('package_version', FALSE);
