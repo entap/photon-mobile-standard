@@ -55,7 +55,7 @@ config('form_upload_remove', '削除');
 config('form_upload_link', 'ファイル');
 
 // アップロード済みの基準URL
-config('form_upload_dir', dirname(dirname(__FILE__)) . '/storage/');
+config('form_upload_dir', dirname(dirname(__FILE__)) . '/../storage/');
 
 // アップロード済みのテキスト
 config('form_upload_url', '/storage/');

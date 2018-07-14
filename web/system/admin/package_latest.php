@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/package_build.php';
+
 /**
  * アプリのバージョンに対応した最新のパッケージを決定する。
  *
@@ -34,7 +36,7 @@ function package_latest_determine($app_version)
 
 	// ビルド中でない事をチェック
 	sql_join('package_build', 'package_id', 'package', 'id');
-	sql_where_integer('package_build.done_flag', 1);
+	sql_where_integer('package_build.package_build_status_id', PACKAGE_BUILD_STATUS_DONE);
 
 	// 最新版
 	sql_order('package_version', FALSE);

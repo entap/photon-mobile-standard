@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/app_version.php';
+require_once __DIR__ . '/package_build.php';
 
 /**
  * パッケージを取得するSQLを生成する
@@ -15,7 +16,8 @@ function package_sql($cond)
 	sql_table('package');
 	sql_field('package.*');
 	sql_field('package_download.count', 'download_count');
-	sql_field('package_build.done_flag');
+	sql_field('m_package_build_status.name', 'package_build_status_name');
+	sql_field('package_build.package_build_status_id');
 	sql_field('package_build.progress');
 	sql_field('package_build.message');
 	if (isset($cond['id']) && $cond['id'] !== '') {
@@ -23,6 +25,7 @@ function package_sql($cond)
 	}
 	sql_join('package_download', 'package_id', 'package', 'id');
 	sql_join('package_build', 'package_id', 'package', 'id');
+	sql_join('m_package_build_status', 'id', 'package_build', 'package_build_status_id');
 	sql_order('package.package_version', FALSE);
 	return sql_select();
 }
@@ -92,7 +95,7 @@ function package_save($package)
 		return $package['id'];
 	} else {
 		$packge_id = db_insert('package', $package);
-		db_insert('package_build', [], $packge_id);
+		db_insert('package_build', ['package_build_status_id' => 1], $packge_id);
 		db_insert('package_download', [], $packge_id);
 	}
 }
@@ -117,8 +120,18 @@ function package_delete($id)
  */
 function package_status_display($package)
 {
-	if (!$package['done_flag']) {
-		return '構築中 ' . $package['progress'] . '% ' . $package['message'];
+	if ($package['package_build_status_id'] == PACKAGE_BUILD_STATUS_WAIT) {
+		return '構築待ち';
+	}
+	if ($package['package_build_status_id'] == PACKAGE_BUILD_STATUS_PROGRESS) {
+		$progress_html = '<div class="progress">';
+		$progress_html .= '<div class="progress-bar progress-bar-success" style="width: ';
+		$progress_html .= $package['progress'] . '%">' . $package['progress'] . '%';
+		$progress_html .= '</div></div>';
+		return $progress_html;
+	}
+	if ($package['package_build_status_id'] == PACKAGE_BUILD_STATUS_ERROR) {
+		return '<span class="label label-danger">失敗</span><div>' . h($package['message']) . '</div>';
 	}
 	if (!$package['public_flag']) {
 		return '非公開';

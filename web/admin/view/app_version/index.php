@@ -4,6 +4,7 @@
 	<div class="col-xs-9">
 		<div class="page-header">
 			<h1><?= $platform['name'] ?>アプリのバージョン</h1>
+			<div class="small">最新パッケージのバージョンは定期的に更新されます。</div>
 		</div>
 		<p class="text-right">
 			<a href="app_version.php?action=edit&app_version[platform_id]=<?= $platform['id'] ?>" class="btn btn-primary" data-toggle="remote-modal"><span class="glyphicon glyphicon-plus"></span> <?= $platform['name'] ?>アプリのバージョンを登録</a>

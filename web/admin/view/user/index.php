@@ -12,7 +12,7 @@
 	<tbody>
 	<?php foreach ($data['records'] as $record) { ?>
 		<tr>
-			<td><?= h($record['name']) ?></td>
+			<td><?= h($record['u']) ?></td>
 			<td>
 				<div class="text-center">
 					<a href="user.php?action=view&id=<?= $record['id'] ?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> 詳細</a>

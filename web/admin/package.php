@@ -29,7 +29,6 @@ function action_edit($data)
 		$data = package_validate($data, 'edit');
 		if (!form_has_error()) {
 			package_save($data['package']);
-			package_latest_build();
 			return redirect('package.php');
 		}
 	} else if ($data['id']) {
