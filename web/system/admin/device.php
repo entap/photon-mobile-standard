@@ -14,7 +14,7 @@ function device_sql($cond)
 	sql_field('device.*');
 	sql_field('m_platform.name', 'platform_name');
 	sql_field('device_info.device_name');
-	sql_field('device_test.test_name', 'device_test_name');
+	sql_field('device_test.device_id', 'device_test_id');
 	if (isset($cond['id']) && $cond['id'] !== '') {
 		sql_where_integer('device.id', $cond['id']);
 	}

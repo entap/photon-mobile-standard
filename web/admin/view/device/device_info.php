@@ -2,7 +2,7 @@
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-			<h4 class="modal-title">デバイス情報</h4>
+			<h4 class="modal-title">端末情報</h4>
 		</div>
 		<div class="modal-body">
 			<table class="table table-bordered">

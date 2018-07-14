@@ -5,26 +5,24 @@
 			<h4 class="modal-title">ユーザ履歴</h4>
 		</div>
 		<div class="modal-body">
-			<table class="table table-bordered">
-				<thead>
-				<tr>
-					<th class="col-xs-6">識別子</th>
-					<th class="col-xs-5">名前</th>
-					<th class="col-xs-1"></th>
-				</tr>
-				</thead>
-				<tbody>
-				<?php foreach ($data['records'] as $record) { ?>
+			<?php foreach ($data['records'] as $record) { ?>
+				<table class="table table-bordered">
+					<tbody>
 					<tr>
-						<td><?= h($record['u']) ?></td>
-						<td><?= h($record['name']) ?></td>
-						<td>
-							<a href="user.php?action=view&id=<?= h($record['id']) ?>" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-user"></span></a>
-						</td>
+						<th class="col-xs-3">日時</th>
+						<td><?= h($record['created']) ?></td>
 					</tr>
-				<?php } ?>
-				</tbody>
-			</table>
+					<tr>
+						<th>識別子</th>
+						<td><?= h($record['u']) ?></td>
+					</tr>
+					<tr>
+						<th>ユーザ名</th>
+						<td><?= h($record['name']) ?></td>
+					</tr>
+					</tbody>
+				</table>
+			<?php } ?>
 			<?= $data['html'] ?>
 		</div>
 	</div>
