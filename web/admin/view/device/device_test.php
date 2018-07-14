@@ -7,17 +7,9 @@
 		<form action="device.php?action=device_test" method="post" enctype="multipart/form-data">
 			<?= form_hidden('device_test[device_id]') ?>
 			<div class="modal-body">
-				<table class="table table-bordered">
-					<tbody>
-					<tr>
-						<th>名前</th>
-						<td>
-							<?= form_error('device_test[test_name]') ?>
-							<?= form_text('device_test[test_name]', 'class="form-control"') ?>
-						</td>
-					</tr>
-					</tbody>
-				</table>
+				<label>開発端末の名前</label>
+				<?= form_error('device_test[test_name]') ?>
+				<?= form_text('device_test[test_name]', 'class="form-control"') ?>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>

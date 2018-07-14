@@ -18,6 +18,9 @@ function device_sql($cond)
 	if (isset($cond['id']) && $cond['id'] !== '') {
 		sql_where_integer('device.id', $cond['id']);
 	}
+	if (isset($cond['keywords']) && $cond['keywords'] !== '') {
+		sql_where_string('device.d', $cond['keywords']);
+	}
 	sql_join('m_platform', 'id', 'device', 'platform_id');
 	sql_join('device_info', 'device_id', 'device', 'id');
 	sql_join('device_test', 'device_id', 'device', 'id');

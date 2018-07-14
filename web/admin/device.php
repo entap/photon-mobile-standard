@@ -57,6 +57,7 @@ function action_device_info($data)
 {
 	$data['id'] = intval($data['id']);
 	$data['id'] or die;
+	$data['device'] = db_select_at('device', $data['id']);
 	$data['device_info'] = db_select_at('device_info', $data['id']);
 	$data['field_comments'] = field_comments('device_info');
 	render('view/device/device_info.php', $data);

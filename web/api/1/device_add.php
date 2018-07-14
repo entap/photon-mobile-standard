@@ -26,7 +26,7 @@ function action_index($data)
 	//------------------------------------------------------------------------------
 
 	// デバイス識別子を生成する
-	$d = bin2hex(openssl_random_pseudo_bytes(16));
+	$d = 'd_' . bin2hex(openssl_random_pseudo_bytes(16));
 
 	// デバイスを登録する
 	$device_id = db_insert('device', [
