@@ -14,8 +14,8 @@
 	<tr>
 		<th class="col-xs-4">端末識別子</th>
 		<th class="col-xs-1">OS</th>
-		<th class="col-xs-2">デバイス名</th>
-		<th class="col-xs-5">操作</th>
+		<th class="col-xs-3">デバイス名</th>
+		<th class="col-xs-4">操作</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -30,7 +30,6 @@
 			<td>
 				<div class="text-center">
 					<a href="user.php?action=view&id=<?= $record['user_id'] ?>&return=<?= urlencode(get_request_url()) ?>" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-user"></span> ユーザ</a>
-					<a href="device.php?action=device_user&id=<?= $record['id'] ?>" class="btn btn-default btn-sm" data-toggle="remote-modal"><span class="glyphicon glyphicon-th-list"></span> ユーザ履歴</a>
 					<a href="device.php?action=device_info&id=<?= $record['id'] ?>" class="btn btn-default btn-sm" data-toggle="remote-modal"><span class="glyphicon glyphicon-phone"></span> 端末情報</a>
 					<a href="device.php?action=device_test&id=<?= $record['id'] ?>" class="btn btn-default btn-sm" data-toggle="remote-modal"><span class="glyphicon glyphicon-wrench"></span> 開発端末</a>
 				</div>

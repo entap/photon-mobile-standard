@@ -11,19 +11,21 @@
 <table class="table table-bordered">
 	<thead>
 	<tr>
-		<th class="col-xs-5">ユーザ識別子</th>
-		<th class="col-xs-5">PINコード</th>
-		<th class="col-xs-2">操作</th>
+		<th class="col-xs-4">ユーザ識別子</th>
+		<th class="col-xs-2">PINコード</th>
+		<th class="col-xs-5"></th>
+		<th class="col-xs-1">操作</th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($data['records'] as $record) { ?>
 		<tr>
 			<td><?= h($record['u']) ?></td>
-			<td><?= h($record['pin']) ?></td>
+			<td><?= h(wordwrap($record['pin'], 4, '-', TRUE)) ?></td>
+			<td></td>
 			<td>
 				<div class="text-center">
-					<a href="user.php?action=view&id=<?= $record['id'] ?>&return=<?= urlencode(get_request_url()) ?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> 詳細</a>
+					<a href="user.php?action=view&id=<?= $record['id'] ?>&return=<?= urlencode(get_request_url()) ?>" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> 詳細</a>
 				</div>
 			</td>
 		</tr>

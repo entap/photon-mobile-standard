@@ -5,7 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Admin</title>
 	<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/assets/css/non-responsive.css" rel="stylesheet">
 	<link href="/assets/css/admin.css" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -13,7 +12,7 @@
 	<![endif]-->
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="index.php">App</a>

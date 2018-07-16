@@ -1,7 +1,11 @@
 body,
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-    min-width: 970px;
+    min-width: 1170px;
+}
+
+body {
+    padding-top: 80px;
 }
 
 .lead {
@@ -17,7 +21,7 @@ body,
 }
 
 .container {
-    width: 970px;
+    width: 1170px;
     max-width: none !important;
 }
 
@@ -61,8 +65,8 @@ body,
 }
 
 .navbar-nav > li > a {
-    padding-top: 7px;
-    padding-bottom: 7px;
+    padding-top: 19.5px;
+    padding-bottom: 19.5px;
 }
 
 .navbar-nav.navbar-right {
