@@ -14,8 +14,8 @@
 	<tr>
 		<th class="col-xs-4">端末識別子</th>
 		<th class="col-xs-1">OS</th>
-		<th class="col-xs-3">デバイス名</th>
-		<th class="col-xs-4">操作</th>
+		<th class="col-xs-4">デバイス名</th>
+		<th class="col-xs-3">操作</th>
 	</tr>
 	</thead>
 	<tbody>
