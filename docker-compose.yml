@@ -1,0 +1,33 @@
+version: "3"
+services:
+  apache:
+    build: ./.docker/php
+    volumes:
+      # - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./web:/var/www/html
+    ports:
+      - 8080:80
+    environment:
+      DB_HOST: photon-db
+  mysql:
+    container_name: photon-db
+    image: mysql:5
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "y"
+      MYSQL_DATABASE: photon-mobile-standard
+      MYSQL_USER: photon-mobile-standard
+      MYSQL_PASSWORD: 2tv8YdBAfuSL
+    volumes:
+      - ./.docker/mysql/my.cnf:/etc/mysql/conf.d/default.cnf
+      - ./db/db.sql:/docker-entrypoint-initdb.d/000_db.sql
+    ports:
+      - 3306:3306
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=photon-db
+      - PMA_USER=root
+      - PMA_PASSWORD=
+    ports:
+      - 10080:80
